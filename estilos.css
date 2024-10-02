@@ -5,12 +5,22 @@ body {
     margin: 0;
 }
 .container {
-    max-width: 600px;
+    max-width: 900px;
     margin: auto;
     background: white;
-    padding: 20px;
+    padding: 60px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.input-container{
+    display: flex;
+    gap: 20px;
+
+}
+.botones{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 textarea {
     width: 100%;
@@ -28,3 +38,28 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+.high-contrast {
+    background-color: #000;
+    color: #fff;
+}
+
+.high-contrast textarea {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #fff;
+}
+
+.high-contrast button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #09417c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.high-contrast button:hover {
+    background-color: #052b55;
+}
+

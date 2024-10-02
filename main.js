@@ -1,10 +1,14 @@
 const textInput = document.getElementById('textInput');
-const speakBtn = document.getElementById('speakBtn');
-const dictateBtn = document.getElementById('dictateBtn');
+const vozBtn = document.getElementById('vozBtn');
+const dictadoBtn = document.getElementById('dictadoBtn');
+const aumentarTxt = document.getElementById('aumentarBtn');
+const disminuirTxt = document.getElementById('disminuirBtn');
+const cambiarContraste = document.getElementById('contrasteBtn');
 const status = document.getElementById('status');
+let tamLetra = 16;
 
 // Sintetizador de voz
-speakBtn.addEventListener('click', () => {
+vozBtn.addEventListener('click', () => {
     const text = textInput.value;
     if (text) {
         const utterance = new SpeechSynthesisUtterance(text);
@@ -21,7 +25,7 @@ if ('webkitSpeechRecognition' in window) {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
-    dictateBtn.addEventListener('click', () => {
+    dictadoBtn.addEventListener('click', () => {
         recognition.start();
         status.textContent = "Escuchando...";
     });
@@ -36,6 +40,22 @@ if ('webkitSpeechRecognition' in window) {
         status.textContent = "Error al reconocer: " + event.error;
     };
 } else {
-    dictateBtn.disabled = true;
+    dictadoBtn.disabled = true;
     status.textContent = "El reconocimiento de voz no es soportado en este navegador.";
 }
+
+aumentarTxt.addEventListener('click', () => {
+    tamLetra += 2;
+    document.body.style.fontSize = tamLetra + 'px';
+});
+
+disminuirTxt.addEventListener('click', () => {
+    if(tamLetra > 12){
+        tamLetra -= 2;
+        document.body.style.fontSize = tamLetra + 'px';
+    }
+});
+
+cambiarContraste.addEventListener('click', () => {
+    document.body.classList.toggle('high-contrast');
+});
