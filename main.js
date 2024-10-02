@@ -5,6 +5,8 @@ const aumentarTxt = document.getElementById('aumentarBtn');
 const disminuirTxt = document.getElementById('disminuirBtn');
 const cambiarContraste = document.getElementById('contrasteBtn');
 const status = document.getElementById('status');
+const copiar = document.getElementById("copiar");
+const pegar = document.getElementById("pegar");
 let tamLetra = 16;
 
 // Sintetizador de voz
@@ -47,15 +49,35 @@ if ('webkitSpeechRecognition' in window) {
 aumentarTxt.addEventListener('click', () => {
     tamLetra += 2;
     document.body.style.fontSize = tamLetra + 'px';
+
+    textInput.style.fontSize = tamLetra + 'px';
+
 });
 
 disminuirTxt.addEventListener('click', () => {
     if(tamLetra > 12){
         tamLetra -= 2;
         document.body.style.fontSize = tamLetra + 'px';
+        textInput.style.fontSize = tamLetra + 'px';
     }
 });
 
 cambiarContraste.addEventListener('click', () => {
     document.body.classList.toggle('high-contrast');
+
+});
+
+
+
+copiar.addEventListener('click', () => {
+    textInput.select();
+    document.execCommand('copy');
+    status.textContent = "Texto copiado al portapapeles";
+});
+
+pegar.addEventListener('click', () => {
+    navigator.clipboard.readText().then(text => {
+        textInput.value = text;
+        status.textContent = "Texto pegado.";
+    });
 });

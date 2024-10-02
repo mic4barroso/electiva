@@ -38,9 +38,23 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+
+.copiar-pegar{
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+    margin-right: 150px;
+}
+
 .high-contrast {
     background-color: #000;
     color: #fff;
+}
+
+.high-contrast .container
+{
+    background-color: #131313;
 }
 
 .high-contrast textarea {
