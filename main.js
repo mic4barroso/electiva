@@ -70,9 +70,15 @@ cambiarContraste.addEventListener('click', () => {
 
 
 copiar.addEventListener('click', () => {
-    textInput.select();
-    document.execCommand('copy');
-    status.textContent = "Texto copiado al portapapeles";
+
+    const text = textInput.value;
+    if (text) {
+        textInput.select();
+        document.execCommand('copy');
+        status.textContent = "Texto copiado al portapapeles";
+    } else {
+        status.textContent = "No hay texto para ser copiado.";
+    }
 });
 
 pegar.addEventListener('click', () => {
@@ -80,4 +86,85 @@ pegar.addEventListener('click', () => {
         textInput.value = text;
         status.textContent = "Texto pegado.";
     });
+});
+
+
+
+
+copiar.addEventListener('mouseover', () => {
+
+    const textoCopiar=  copiar.textContent;
+
+
+    if (textoCopiar) {
+        const utterance = new SpeechSynthesisUtterance(textoCopiar);
+        window.speechSynthesis.speak(utterance);
+    } 
+});
+
+
+pegar.addEventListener('mouseover', () => {
+
+    const textoPegar=  pegar.textContent;
+
+    if (textoPegar) {
+        const utterance = new SpeechSynthesisUtterance(textoPegar);
+        window.speechSynthesis.speak(utterance);
+    } 
+});
+
+
+
+vozBtn.addEventListener('mouseover', () => {
+
+    const textoVoz=  vozBtn.textContent;
+
+    if (textoVoz) {
+        const utterance = new SpeechSynthesisUtterance(textoVoz);
+        window.speechSynthesis.speak(utterance);
+    } 
+});
+
+
+dictadoBtn.addEventListener('mouseover', () => {
+
+    const textoDictado=  dictadoBtn.textContent;
+
+    if (textoDictado) {
+        const utterance = new SpeechSynthesisUtterance(textoDictado);
+        window.speechSynthesis.speak(utterance);
+    } 
+});
+
+
+aumentarTxt.addEventListener('mouseover', () => {
+
+    const textoAumentar=  aumentarTxt.textContent;
+
+    if (textoAumentar) {
+        const utterance = new SpeechSynthesisUtterance(textoAumentar);
+        window.speechSynthesis.speak(utterance);
+    } 
+});
+
+
+disminuirTxt.addEventListener('mouseover', () => {
+
+    const textoDisminuir=  disminuirTxt.textContent;
+
+    if (textoDisminuir) {
+        const utterance = new SpeechSynthesisUtterance(textoDisminuir);
+        window.speechSynthesis.speak(utterance);
+    } 
+});
+
+
+cambiarContraste.addEventListener('mouseover', () => {
+
+    const textoContraste=  cambiarContraste.textContent;
+
+    if (textoContraste) {
+        const utterance = new SpeechSynthesisUtterance(textoContraste);
+        window.speechSynthesis.speak(utterance);
+    } 
 });
