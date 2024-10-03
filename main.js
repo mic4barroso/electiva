@@ -89,6 +89,10 @@ pegar.addEventListener('click', () => {
 });
 
 
+//mouseover/out
+
+
+let timer;
 
 
 copiar.addEventListener('mouseover', () => {
@@ -97,9 +101,16 @@ copiar.addEventListener('mouseover', () => {
 
 
     if (textoCopiar) {
+        timer = setTimeout(() => {
         const utterance = new SpeechSynthesisUtterance(textoCopiar);
         window.speechSynthesis.speak(utterance);
-    } 
+    }, 1000);
+}
+
+});
+
+copiar.addEventListener('mouseout', () => {
+    clearTimeout(timer); 
 });
 
 
@@ -108,11 +119,17 @@ pegar.addEventListener('mouseover', () => {
     const textoPegar=  pegar.textContent;
 
     if (textoPegar) {
+        timer = setTimeout(() => {
         const utterance = new SpeechSynthesisUtterance(textoPegar);
         window.speechSynthesis.speak(utterance);
-    } 
+    }, 500);
+}
+
 });
 
+pegar.addEventListener('mouseout', () => {
+    clearTimeout(timer); 
+});
 
 
 vozBtn.addEventListener('mouseover', () => {
@@ -120,9 +137,16 @@ vozBtn.addEventListener('mouseover', () => {
     const textoVoz=  vozBtn.textContent;
 
     if (textoVoz) {
+        timer = setTimeout(() => {
         const utterance = new SpeechSynthesisUtterance(textoVoz);
         window.speechSynthesis.speak(utterance);
-    } 
+    }, 500);
+}
+
+});
+
+vozBtn.addEventListener('mouseout', () => {
+    clearTimeout(timer); 
 });
 
 
@@ -131,9 +155,15 @@ dictadoBtn.addEventListener('mouseover', () => {
     const textoDictado=  dictadoBtn.textContent;
 
     if (textoDictado) {
+        timer = setTimeout(() => {
         const utterance = new SpeechSynthesisUtterance(textoDictado);
         window.speechSynthesis.speak(utterance);
-    } 
+    }, 500);
+}
+});
+
+dictadoBtn.addEventListener('mouseout', () => {
+    clearTimeout(timer); 
 });
 
 
@@ -142,29 +172,45 @@ aumentarTxt.addEventListener('mouseover', () => {
     const textoAumentar=  aumentarTxt.textContent;
 
     if (textoAumentar) {
+        timer = setTimeout(() => {
         const utterance = new SpeechSynthesisUtterance(textoAumentar);
         window.speechSynthesis.speak(utterance);
+    }, 500); 
     } 
 });
 
+aumentarTxt.addEventListener('mouseout', () => {
+    clearTimeout(timer); 
+});
 
 disminuirTxt.addEventListener('mouseover', () => {
 
     const textoDisminuir=  disminuirTxt.textContent;
 
     if (textoDisminuir) {
+        timer = setTimeout(() => {
         const utterance = new SpeechSynthesisUtterance(textoDisminuir);
         window.speechSynthesis.speak(utterance);
+    }, 500); 
     } 
+});
+
+disminuirTxt.addEventListener('mouseout', () => {
+    clearTimeout(timer); 
 });
 
 
 cambiarContraste.addEventListener('mouseover', () => {
-
-    const textoContraste=  cambiarContraste.textContent;
+    const textoContraste = cambiarContraste.textContent;
 
     if (textoContraste) {
-        const utterance = new SpeechSynthesisUtterance(textoContraste);
-        window.speechSynthesis.speak(utterance);
-    } 
+        timer = setTimeout(() => {
+            const utterance = new SpeechSynthesisUtterance(textoContraste);
+            window.speechSynthesis.speak(utterance);
+        }, 500); 
+    }
+});
+
+cambiarContraste.addEventListener('mouseout', () => {
+    clearTimeout(timer); 
 });
