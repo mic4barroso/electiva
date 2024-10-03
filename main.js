@@ -88,6 +88,22 @@ pegar.addEventListener('click', () => {
     });
 });
 
+// Nuevo código para borrar el texto
+const borrar = document.getElementById("borrar");
+
+borrar.addEventListener('click', () => {
+    textInput.value = ""; // borra el contenido del textarea
+    status.textContent = "Texto borrado.";
+});
+borrar.addEventListener('click', () => {
+    textInput.value = ""; // borra el contenido del textarea
+    status.textContent = "Texto borrado.";
+    
+    // Agrega aquí el sintetizador de voz para anunciar que se presionó el botón
+    const textoBorrar = borrar.textContent;
+    const utterance = new SpeechSynthesisUtterance(`${textoBorrar}`);
+    window.speechSynthesis.speak(utterance);
+});
 
 //mouseover/out
 
