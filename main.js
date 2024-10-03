@@ -96,7 +96,7 @@ borrar.addEventListener('click', () => {
     
     // Sintetizador de voz para anunciar que se presionó el botón
     const textoBorrar = borrar.textContent;
-    const utterance = new SpeechSynthesisUtterance(`Se presionó el botón ${textoBorrar}`);
+    const utterance = new SpeechSynthesisUtterance(`${textoBorrar}`);
     window.speechSynthesis.speak(utterance);
 });
 
