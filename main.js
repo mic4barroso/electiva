@@ -87,22 +87,28 @@ pegar.addEventListener('click', () => {
         status.textContent = "Texto pegado.";
     });
 });
-
 // Nuevo código para borrar el texto
 const borrar = document.getElementById("borrar");
 
 borrar.addEventListener('click', () => {
     textInput.value = ""; // borra el contenido del textarea
     status.textContent = "Texto borrado.";
-});
-borrar.addEventListener('click', () => {
-    textInput.value = ""; // borra el contenido del textarea
-    status.textContent = "Texto borrado.";
     
-    // Agrega aquí el sintetizador de voz para anunciar que se presionó el botón
+    // Sintetizador de voz para anunciar que se presionó el botón
     const textoBorrar = borrar.textContent;
-    const utterance = new SpeechSynthesisUtterance(`${textoBorrar}`);
+    const utterance = new SpeechSynthesisUtterance(`Se presionó el botón ${textoBorrar}`);
     window.speechSynthesis.speak(utterance);
+});
+
+// Evento de mouseover para el botón "Borrar Texto"
+borrar.addEventListener('mouseover', () => {
+    const textoBorrar = borrar.textContent;
+    if (textoBorrar) {
+        timer = setTimeout(() => {
+            const utterance = new SpeechSynthesisUtterance(textoBorrar);
+            window.speechSynthesis.speak(utterance);
+        }, 500); // Espera 500ms antes de narrar
+    }
 });
 
 //mouseover/out
