@@ -1,0 +1,38 @@
+label
+{
+    font-size: 1.40rem;
+}
+
+p{
+    font-size: 1.40rem;
+}
+
+
+.btn{
+    font-size: 1.40rem;
+}
+
+
+.btn-parlante{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.img-parlante
+{
+    width: 50px;
+    height: auto;
+}
+
+.img-pedido {
+    width: 500px; 
+    height: auto; 
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between; 
+    margin: 20px; 
+}
